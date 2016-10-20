@@ -43,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(password.equals(storedPassword))
                 {
                     Toast.makeText(LoginActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+                    Intent intentHome=new Intent(getApplicationContext(),UserHomeActivity.class);
+                    startActivity(intentHome);
                 }
                 else
                 {
@@ -53,9 +55,8 @@ public class LoginActivity extends AppCompatActivity {
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
-                /// Create Intent for SignUpActivity  abd Start The Activity
+                /// Create Intent for SignUpActivity  and Start The Activity
                 Intent intentSignUp=new Intent(getApplicationContext(),SignUpActivity.class);
                 startActivity(intentSignUp);
             }

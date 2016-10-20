@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by anupal on 20/10/16.
+ * Created by anupal on 21/10/16.
  */
 
-public class HomeActivity extends AppCompatActivity {
+public class UserHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
-
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_home);
     }
 }
