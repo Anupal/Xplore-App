@@ -61,11 +61,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Address:"
-                    android:textSize="18sp"
-                    android:id="@+id/etAddressl"/>
+                    android:textSize="18sp" />
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:id="@+id/etAddressl"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

@@ -14,22 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecyclerAdapter.ViewHolder> {
 
-    static   List<UserDatabaseModel> dbList;
+    static   List<LocationDatabaseModel> dbList;
     static  Context context;
-    RecyclerAdapter(Context context, List<UserDatabaseModel> dbList ){
-        this.dbList = new ArrayList<UserDatabaseModel>();
+    LocationRecyclerAdapter(Context context, List<LocationDatabaseModel> dbList ){
+        this.dbList = new ArrayList<LocationDatabaseModel>();
         this.context = context;
         this.dbList = dbList;
 
     }
 
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LocationRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.item_row, null);
+                R.layout.item_row_location, null);
 
         // create ViewHolder
 
@@ -38,10 +38,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(LocationRecyclerAdapter.ViewHolder holder, int position) {
 
         holder.name.setText(dbList.get(position).getName());
-        holder.email.setText(dbList.get(position).getEmail());
+        holder.rating.setText(dbList.get(position).getRating());
 
     }
 
@@ -52,30 +52,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView name,email;
+        public TextView name,rating;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             name = (TextView) itemLayoutView
-                    .findViewById(R.id.rvname);
-            email = (TextView)itemLayoutView.findViewById(R.id.rvemail);
+                    .findViewById(R.id.rvnamel);
+            rating = (TextView)itemLayoutView.findViewById(R.id.rvratingl);
             itemLayoutView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context,DetailsActivity.class);
+            Intent intent = new Intent(context,LocationDetailsActivity.class);
 
             Bundle extras = new Bundle();
             extras.putInt("position",getAdapterPosition());
             intent.putExtras(extras);
 
-            /*
-            int i=getAdapterPosition();
-            intent.putExtra("position", getAdapterPosition());*/
+
             context.startActivity(intent);
-            Toast.makeText(RecyclerAdapter.context, "you have clicked Row " + getAdapterPosition(), Toast.LENGTH_LONG).show();
+            Toast.makeText(LocationRecyclerAdapter.context, "you have clicked Row " + getAdapterPosition(), Toast.LENGTH_LONG).show();
         }
     }
 }

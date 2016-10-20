@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(SignUpActivity.this, SecondActivity.class));
 
-                // startActivity(new Intent(SignUpActivity.this, DetailsActivity.class));
+                // startActivity(new Intent(SignUpActivity.this, UserDetailsActivity.class));
 
             }
         });
@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                 etcontact_number.setText("");
                 etEmail.setText("");
 
-                Toast.makeText(SignUpActivity.this, "insert value", Toast.LENGTH_LONG);
+                Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_LONG);
 
             }
         });

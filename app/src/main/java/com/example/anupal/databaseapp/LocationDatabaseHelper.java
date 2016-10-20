@@ -68,7 +68,7 @@ public class LocationDatabaseHelper extends SQLiteOpenHelper{
 
     public List<LocationDatabaseModel> getFoodFromDB(){
         List<LocationDatabaseModel> modelList = new ArrayList<LocationDatabaseModel>();
-        String query = "select * from "+LOCATION_TABLE + " WHERE type=? ORDER BY RATING";
+        String query = "select * from "+LOCATION_TABLE + " WHERE type=? ORDER BY RATING DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query,new String[]{"Food"});
@@ -95,7 +95,7 @@ public class LocationDatabaseHelper extends SQLiteOpenHelper{
 
     public List<LocationDatabaseModel> getRecreationFromDB(){
         List<LocationDatabaseModel> modelList = new ArrayList<LocationDatabaseModel>();
-        String query = "select * from "+LOCATION_TABLE + " WHERE type=? ORDER BY RATING";
+        String query = "select * from "+LOCATION_TABLE + " WHERE type=? ORDER BY RATING DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query,new String[]{"Recreation"});

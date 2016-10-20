@@ -10,17 +10,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsActivity extends AppCompatActivity {
+public class UserDetailsActivity extends AppCompatActivity {
     UserDatabaseHelper helper;
     List<UserDatabaseModel> dbList;
     int position;
-    TextView tvname,tvemail,tvroll,tvcontact_number;
+    TextView tvname,tvemail,tvcontact_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_user_details);
 
 
         Intent intent = getIntent();
@@ -45,7 +45,7 @@ public class DetailsActivity extends AppCompatActivity {
             tvcontact_number.setText(contact_number);
         }
 
-        Toast.makeText(DetailsActivity.this, dbList.toString(), Toast.LENGTH_LONG);
+        Toast.makeText(UserDetailsActivity.this, dbList.toString(), Toast.LENGTH_LONG);
     }
 
 
