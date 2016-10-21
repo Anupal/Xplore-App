@@ -126,4 +126,10 @@ public class LocationDatabaseHelper extends SQLiteOpenHelper{
         db.close();
     }
 
+    public void updateRating(String contact_number, String rating){
+        SQLiteDatabase db= this.getWritableDatabase();
+        String query = "UPDATE " + LOCATION_TABLE + " SET RATING = " + rating + " WHERE contactNumber = " + contact_number;
+        db.execSQL(query);
+    }
+
 }

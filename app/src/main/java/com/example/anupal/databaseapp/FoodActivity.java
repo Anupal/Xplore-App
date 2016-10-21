@@ -39,7 +39,7 @@ public class FoodActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new LocationRecyclerAdapter(this,dbList);
+        mAdapter = new FoodLocationRecyclerAdapter(this,dbList);
         mRecyclerView.setAdapter(mAdapter);
 
     }

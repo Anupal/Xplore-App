@@ -13,12 +13,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by anupal on 21/10/16.
+ */
 
-public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecyclerAdapter.ViewHolder> {
+public class FoodLocationRecyclerAdapter extends RecyclerView.Adapter<FoodLocationRecyclerAdapter.ViewHolder> {
 
-    static   List<LocationDatabaseModel> dbList;
-    static  Context context;
-    LocationRecyclerAdapter(Context context, List<LocationDatabaseModel> dbList ){
+    static List<LocationDatabaseModel> dbList;
+    static Context context;
+    FoodLocationRecyclerAdapter(Context context, List<LocationDatabaseModel> dbList ){
         this.dbList = new ArrayList<LocationDatabaseModel>();
         this.context = context;
         this.dbList = dbList;
@@ -26,7 +29,7 @@ public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecycl
     }
 
     @Override
-    public LocationRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FoodLocationRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.item_row_location, null);
@@ -38,7 +41,7 @@ public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecycl
     }
 
     @Override
-    public void onBindViewHolder(LocationRecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(FoodLocationRecyclerAdapter.ViewHolder holder, int position) {
 
         holder.name.setText(dbList.get(position).getName());
         holder.rating.setText(dbList.get(position).getRating());
@@ -65,7 +68,7 @@ public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecycl
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context,RecreationDetailsActivity.class);
+            Intent intent = new Intent(context,FoodDetailsActivity.class);
 
             Bundle extras = new Bundle();
             extras.putInt("position",getAdapterPosition());
@@ -73,8 +76,6 @@ public class LocationRecyclerAdapter extends RecyclerView.Adapter<LocationRecycl
 
 
             context.startActivity(intent);
-            Toast.makeText(LocationRecyclerAdapter.context, "you have clicked Row " + getAdapterPosition(), Toast.LENGTH_LONG).show();
         }
     }
 }
-
