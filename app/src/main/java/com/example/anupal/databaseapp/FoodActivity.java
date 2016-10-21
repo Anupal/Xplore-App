@@ -10,9 +10,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondActivity extends AppCompatActivity {
-    UserDatabaseHelper helpher;
-    List<UserDatabaseModel> dbList;
+public class FoodActivity extends AppCompatActivity {
+    LocationDatabaseHelper helper;
+    List<LocationDatabaseModel> dbList;
     RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -20,17 +20,17 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_food);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        helpher = new UserDatabaseHelper(this);
-        dbList= new ArrayList<UserDatabaseModel>();
-        dbList = helpher.getDataFromDB();
+        helper = new LocationDatabaseHelper(this);
+        dbList= new ArrayList<LocationDatabaseModel>();
+        dbList = helper.getFoodFromDB();
 
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recycleview);
+        mRecyclerView = (RecyclerView)findViewById(R.id.recycleviewf);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -39,7 +39,7 @@ public class SecondActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new UserRecyclerAdapter(this,dbList);
+        mAdapter = new FoodLocationRecyclerAdapter(this,dbList);
         mRecyclerView.setAdapter(mAdapter);
 
     }
