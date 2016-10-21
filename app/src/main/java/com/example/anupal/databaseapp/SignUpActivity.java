@@ -28,16 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
         etPassword =(EditText)findViewById(R.id.etPassword);
         etEmail = (EditText)findViewById(R.id.etEmail);
         btnSubmit  =(Button)findViewById(R.id.btnSubmit);
-        btngetdata =(Button)findViewById(R.id.btngetdata);
-        btngetdata.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SecondActivity.class));
-
-                // startActivity(new Intent(SignUpActivity.this, UserDetailsActivity.class));
-
-            }
-        });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
